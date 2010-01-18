@@ -1,0 +1,250 @@
+// !$*UTF8*$!
+{
+	256AC3F00F4B6AF500CF3369 /* PlistExplorer_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1090, 637}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 157}";
+			sepNavWindowFrame = "{{176, 516}, {1137, 750}}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Release;
+		activeExecutable = 3DA45CE910FE6A850070BC1A /* PlistExporer */;
+		activeTarget = 3DA45CE710FE6A850070BC1A /* PlistExporer */;
+		addToTargets = (
+			3DA45CE710FE6A850070BC1A /* PlistExporer */,
+		);
+		breakpoints = (
+		);
+		codeSenseManager = 3DA45AE110FE4D9D0070BC1A /* Code sense */;
+		executables = (
+			3DA45CE910FE6A850070BC1A /* PlistExporer */,
+		);
+		perUserDictionary = {
+			PBXPerProjectTemplateStateSaveDate = 285534625;
+			PBXWorkspaceStateSaveDate = 285534625;
+		};
+		perUserProjectItems = {
+			3DB31FC510FFD4E100E7185D = 3DB31FC510FFD4E100E7185D /* PBXBookmark */;
+			3DB31FC610FFD4E100E7185D = 3DB31FC610FFD4E100E7185D /* PBXTextBookmark */;
+			3DC657711104EDFA0026BBCF /* PBXTextBookmark */ = 3DC657711104EDFA0026BBCF /* PBXTextBookmark */;
+			3DC657721104EDFA0026BBCF /* PBXTextBookmark */ = 3DC657721104EDFA0026BBCF /* PBXTextBookmark */;
+			3DC657731104EDFA0026BBCF /* XCBuildMessageTextBookmark */ = 3DC657731104EDFA0026BBCF /* XCBuildMessageTextBookmark */;
+			3DC657741104EDFA0026BBCF /* PBXTextBookmark */ = 3DC657741104EDFA0026BBCF /* PBXTextBookmark */;
+			3DC657771104EE330026BBCF /* PBXTextBookmark */ = 3DC657771104EE330026BBCF /* PBXTextBookmark */;
+			3DC657781104EE330026BBCF /* XCBuildMessageTextBookmark */ = 3DC657781104EE330026BBCF /* XCBuildMessageTextBookmark */;
+			3DC657791104EE330026BBCF /* PBXTextBookmark */ = 3DC657791104EE330026BBCF /* PBXTextBookmark */;
+			3DC6577C1104EE370026BBCF /* PBXTextBookmark */ = 3DC6577C1104EE370026BBCF /* PBXTextBookmark */;
+			3DC6577D1104EE370026BBCF /* PBXTextBookmark */ = 3DC6577D1104EE370026BBCF /* PBXTextBookmark */;
+		};
+		sourceControlManager = 3DA45AE010FE4D9D0070BC1A /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	3DA45AE010FE4D9D0070BC1A /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	3DA45AE110FE4D9D0070BC1A /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	3DA45AE210FE4DA70070BC1A /* PlistExplorer.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1530, 364}}";
+			sepNavSelRange = "{294, 0}";
+			sepNavVisRange = "{3, 359}";
+			sepNavWindowFrame = "{{15, 663}, {1137, 750}}";
+		};
+	};
+	3DA45AE310FE4DA70070BC1A /* PlistExplorer.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1090, 2275}}";
+			sepNavSelRange = "{444, 0}";
+			sepNavVisRange = "{638, 799}";
+			sepNavWindowFrame = "{{15, 663}, {1137, 750}}";
+		};
+	};
+	3DA45B3110FE57050070BC1A /* Morphic.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1090, 637}}";
+			sepNavSelRange = "{231, 0}";
+			sepNavVisRange = "{0, 237}";
+			sepNavWindowFrame = "{{870, 334}, {1137, 750}}";
+		};
+	};
+	3DA45B3210FE57050070BC1A /* Morphic.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1530, 728}}";
+			sepNavSelRange = "{220, 24}";
+			sepNavVisRange = "{81, 336}";
+			sepNavWindowFrame = "{{870, 334}, {1137, 750}}";
+		};
+	};
+	3DA45BB710FE5A2D0070BC1A /* CrackedUnarchiver.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1090, 637}}";
+			sepNavSelRange = "{308, 0}";
+			sepNavVisRange = "{0, 363}";
+			sepNavWindowFrame = "{{268, 432}, {1137, 750}}";
+		};
+	};
+	3DA45BB810FE5A2D0070BC1A /* CrackedUnarchiver.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1090, 637}}";
+			sepNavSelRange = "{380, 0}";
+			sepNavVisRange = "{0, 386}";
+			sepNavWindowFrame = "{{1072, 668}, {1137, 750}}";
+		};
+	};
+	3DA45CE710FE6A850070BC1A /* PlistExporer */ = {
+		activeExec = 0;
+		executables = (
+			3DA45CE910FE6A850070BC1A /* PlistExporer */,
+		);
+	};
+	3DA45CE910FE6A850070BC1A /* PlistExporer */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = PlistExporer;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	3DA45CEE10FE6AB50070BC1A /* PlistExplorerMain.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1530, 429}}";
+			sepNavSelRange = "{653, 0}";
+			sepNavVisRange = "{241, 412}";
+			sepNavWindowFrame = "{{613, 117}, {1137, 750}}";
+		};
+	};
+	3DB31FC510FFD4E100E7185D /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 3DA45B3210FE57050070BC1A /* Morphic.m */;
+	};
+	3DB31FC610FFD4E100E7185D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3DA45B3210FE57050070BC1A /* Morphic.m */;
+		name = "Morphic.m: 35";
+		rLen = 0;
+		rLoc = 363;
+		rType = 0;
+		vrLen = 826;
+		vrLoc = 0;
+	};
+	3DC657711104EDFA0026BBCF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3DA45AE310FE4DA70070BC1A /* PlistExplorer.m */;
+		name = "PlistExplorer.m: 172";
+		rLen = 0;
+		rLoc = 3880;
+		rType = 0;
+		vrLen = 308;
+		vrLoc = 3580;
+	};
+	3DC657721104EDFA0026BBCF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3DA45AE210FE4DA70070BC1A /* PlistExplorer.h */;
+		name = "PlistExplorer.h: 18";
+		rLen = 0;
+		rLoc = 294;
+		rType = 0;
+		vrLen = 359;
+		vrLoc = 3;
+	};
+	3DC657731104EDFA0026BBCF /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "'allKeys' defined but not used";
+		fRef = 3DA45B3210FE57050070BC1A /* Morphic.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 12;
+		rType = 1;
+	};
+	3DC657741104EDFA0026BBCF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3DA45B3210FE57050070BC1A /* Morphic.m */;
+		name = "Morphic.m: 13";
+		rLen = 24;
+		rLoc = 220;
+		rType = 0;
+		vrLen = 336;
+		vrLoc = 81;
+	};
+	3DC657771104EE330026BBCF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3DA45B3210FE57050070BC1A /* Morphic.m */;
+		name = "Morphic.m: 13";
+		rLen = 24;
+		rLoc = 220;
+		rType = 0;
+		vrLen = 336;
+		vrLoc = 81;
+	};
+	3DC657781104EE330026BBCF /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Potential leak of an object allocated on line 19 and stored into 'path'";
+		fRef = 3DA45CEE10FE6AB50070BC1A /* PlistExplorerMain.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 28;
+		rType = 1;
+	};
+	3DC657791104EE330026BBCF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3DA45CEE10FE6AB50070BC1A /* PlistExplorerMain.m */;
+		name = "PlistExplorerMain.m: 33";
+		rLen = 0;
+		rLoc = 653;
+		rType = 0;
+		vrLen = 412;
+		vrLoc = 241;
+	};
+	3DC6577C1104EE370026BBCF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3DA45B3210FE57050070BC1A /* Morphic.m */;
+		name = "Morphic.m: 13";
+		rLen = 24;
+		rLoc = 220;
+		rType = 0;
+		vrLen = 336;
+		vrLoc = 81;
+	};
+	3DC6577D1104EE370026BBCF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3DA45B3210FE57050070BC1A /* Morphic.m */;
+		name = "Morphic.m: 13";
+		rLen = 24;
+		rLoc = 220;
+		rType = 0;
+		vrLen = 336;
+		vrLoc = 81;
+	};
+}

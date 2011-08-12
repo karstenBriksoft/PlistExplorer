@@ -67,7 +67,13 @@
 
 - (void)logYourselfLevel:(NSInteger)level recordingVisitedObjects:(NSMutableSet*)visitedObjects
 {
-	for (NSString* key in [self allKeys])
+	// the information about the object's properties
+	NSArray *keys = [self allKeys];
+	keys = [keys sortedArrayUsingComparator:^(id obj1, id obj2) {
+		return [(NSString*)obj1 compare:obj2];
+	}];
+	
+	for (NSString* key in keys)
 	{
 		id obj = [self objectForKey:key];
 		[key logYourselfLevel:level+1 recordingVisitedObjects:visitedObjects];

@@ -53,7 +53,12 @@
 		printf("%s\n",[[NSString stringWithFormat:@"%@%@",[self gapForLevel:level],[self className]] UTF8String]);
 		
 		// the information about the object's properties
-		for (NSString* key in [data allKeys])
+		NSArray *keys = [data allKeys];
+		keys = [keys sortedArrayUsingComparator:^(id obj1, id obj2) {
+			return [(NSString*)obj1 compare:obj2];
+		}];
+
+		for (NSString* key in keys)
 		{
 			id object = [data objectForKey:key];
 			[key logYourselfLevel:level+1 recordingVisitedObjects:visitedObjects];

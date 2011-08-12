@@ -39,17 +39,31 @@
 	return self;
 }
 
-- (void)logYourselfLevel:(NSInteger)level
+- (void)logYourselfLevel:(NSInteger)level recordingVisitedObjects:(NSMutableSet*)visitedObjects
 {
-	// the information about the object
-	printf("%s\n",[[NSString stringWithFormat:@"%@%@",[self gapForLevel:level],[self className]] UTF8String]);
-	
-	// the information about the object's properties
-	for (NSString* key in [data allKeys])
+	if ([visitedObjects containsObject:self]) {
+		// already printed once before
+		printf("%s\n",[[NSString stringWithFormat:@"%@%@",[self gapForLevel:level],@"(recursion)"] UTF8String]);
+	}
+	else
 	{
-		id object = [data objectForKey:key];
-		[key logYourselfLevel: level+1];
-		[object logYourselfLevel: level+3];
+		[visitedObjects addObject:self];
+
+		// the information about the object
+		printf("%s\n",[[NSString stringWithFormat:@"%@%@",[self gapForLevel:level],[self className]] UTF8String]);
+		
+		// the information about the object's properties
+		NSArray *keys = [data allKeys];
+		keys = [keys sortedArrayUsingComparator:^(id obj1, id obj2) {
+			return [(NSString*)obj1 compare:obj2];
+		}];
+
+		for (NSString* key in keys)
+		{
+			id object = [data objectForKey:key];
+			[key logYourselfLevel:level+1 recordingVisitedObjects:visitedObjects];
+			[object logYourselfLevel:level+3 recordingVisitedObjects:visitedObjects];
+		}
 	}
 }
 @end

@@ -11,7 +11,7 @@
 
 @interface PlistExplorer : NSObject {
 	NSString* file;
-	NSData* data; 
+	NSData* data;
 }
 
 - (NSDictionary*)crackFile:(NSString*)aFile;
@@ -22,6 +22,6 @@
 
 @interface NSObject (PlistExplorer)
 - (void)logYourself;
-- (void)logYourselfLevel:(NSInteger)level;
+- (void) logYourselfLevel:(NSInteger)level recordingVisitedObjects:(NSMutableSet*)visitedObjects;
 - (NSString*)gapForLevel:(NSInteger) level;
 @end

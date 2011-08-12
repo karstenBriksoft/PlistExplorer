@@ -23,7 +23,9 @@
 
 - (void)logYourself
 {
-	[self logYourselfLevel:1];
+	NSMutableSet* visitedObjects = [NSMutableSet new];	// used to detect recursions
+	[self logYourselfLevel:0 recordingVisitedObjects:visitedObjects];
+	[visitedObjects release];
 }
 
 - (NSString*)logString
@@ -31,7 +33,7 @@
 	return [self description];
 }
 
-- (void)logYourselfLevel:(NSInteger)level
+- (void)logYourselfLevel:(NSInteger)level recordingVisitedObjects:(NSMutableSet*)visitedObjects
 {
 	printf("%s\n",[[NSString stringWithFormat:@"%@%@",[self gapForLevel:level],[self logString]] UTF8String]);
 }
@@ -51,11 +53,11 @@
 
 @implementation NSArray (PlistExplorer)
 
-- (void)logYourselfLevel:(NSInteger)level
+- (void)logYourselfLevel:(NSInteger)level recordingVisitedObjects:(NSMutableSet*)visitedObjects
 {
 	for (id obj in self)
 	{
-		[obj logYourselfLevel: level + 1];
+		[obj logYourselfLevel:level+1 recordingVisitedObjects:visitedObjects];
 	}
 }
 
@@ -63,13 +65,13 @@
 
 @implementation NSDictionary (PlistExplorer)
 
-- (void)logYourselfLevel:(NSInteger)level
+- (void)logYourselfLevel:(NSInteger)level recordingVisitedObjects:(NSMutableSet*)visitedObjects
 {
 	for (NSString* key in [self allKeys])
 	{
 		id obj = [self objectForKey:key];
-		[key logYourselfLevel: level + 1];
-		[obj logYourselfLevel: level + 3];
+		[key logYourselfLevel:level+1 recordingVisitedObjects:visitedObjects];
+		[obj logYourselfLevel:level+3 recordingVisitedObjects:visitedObjects];
 	}
 }
 

@@ -54,9 +54,7 @@
 		
 		// the information about the object's properties
 		NSArray *keys = [data allKeys];
-		keys = [keys sortedArrayUsingComparator:^(id obj1, id obj2) {
-			return [(NSString*)obj1 compare:obj2];
-		}];
+		keys = [keys sortedArrayUsingSelector:@selector(compare:)];
 
 		for (NSString* key in keys)
 		{

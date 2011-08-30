@@ -39,6 +39,11 @@
 	return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone	// needed for some kinds of Core Data "layout" files
+{
+	return [self class];	// not sure if this is the right thing to return, but it avoids crashes
+}
+
 - (void)logYourselfLevel:(NSInteger)level recordingVisitedObjects:(NSMutableSet*)visitedObjects
 {
 	if ([visitedObjects containsObject:self]) {

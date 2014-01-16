@@ -87,7 +87,7 @@
 - (NSString*)logString
 {
 	// description of NSData is a bit too long, just write something usefull
-	return [NSString stringWithFormat: @"NSData with: %i Bytes",[self length]];
+	return [NSString stringWithFormat: @"NSData with: %tu Bytes",[self length]];
 }
 
 @end

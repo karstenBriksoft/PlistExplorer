@@ -12,13 +12,4 @@
 
 @implementation CrackedUnarchiver
 
-
-- (PlistExplorer *) cracker {
-  return cracker;
-}
-
-- (void) setCracker: (PlistExplorer *) newValue {
-  cracker = newValue;
-}
-
 @end

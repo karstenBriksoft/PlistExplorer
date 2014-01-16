@@ -92,11 +92,14 @@
 @end
 
 @implementation PlistExplorer
+{
+	NSData* data;
+}
 
 - (NSKeyedUnarchiver *) newUnarchiver 
 {
 	CrackedUnarchiver* unarchiver = [[CrackedUnarchiver alloc] initForReadingWithData:data];
-	[unarchiver setCracker:self];
+	unarchiver.cracker = self;
 	return unarchiver;
 }
 
@@ -168,9 +171,8 @@
 	return nil;
 }
 
-- (NSDictionary*)crackFile:(NSString*)aFile
+- (NSDictionary*)crackFile:(NSString*)file
 {
-	file = aFile;
 	data = [NSData dataWithContentsOfFile:file];
 	NSKeyedUnarchiver* unarchiver = [self newUnarchiver];
 

@@ -9,10 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface PlistExplorer : NSObject {
-	NSString* file;
-	NSData* data;
-}
+@interface PlistExplorer : NSObject
 
 - (NSDictionary*)crackFile:(NSString*)aFile;
 - (NSArray*)keysOfUnarchiver:(NSKeyedUnarchiver*)unarchiver;

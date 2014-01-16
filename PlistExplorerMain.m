@@ -8,6 +8,7 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import <sysexits.h>
 #import "PlistExplorer.h"
 
 int main(int argc, char* argv[])
@@ -22,11 +23,11 @@ int main(int argc, char* argv[])
 		else
 		{
 			printf("usage: %s <filename>\n",argv[0]);
-			return 0;
+			return EX_USAGE;
 		}
 		PlistExplorer* explorer = [[PlistExplorer alloc] init];
 		id res = [explorer crackFile:path];
 		[res logYourself];
 	}
-	return 1;
+	return EX_OK;
 }

@@ -8,6 +8,7 @@
 
 #import "CrackedUnarchiver.h"
 
+#import "PlistExplorer.h"
 
 @implementation CrackedUnarchiver
 
@@ -17,8 +18,7 @@
 }
 
 - (void) setCracker: (PlistExplorer *) newValue {
-  [cracker autorelease];
-  cracker = [newValue retain];
+  cracker = newValue;
 }
 
 @end

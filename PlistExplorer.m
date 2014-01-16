@@ -25,7 +25,6 @@
 {
 	NSMutableSet* visitedObjects = [NSMutableSet new];	// used to detect recursions
 	[self logYourselfLevel:0 recordingVisitedObjects:visitedObjects];
-	[visitedObjects release];
 }
 
 - (NSString*)logString

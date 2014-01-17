@@ -11,6 +11,9 @@
 #import "CrackedUnarchiver.h"
 
 @implementation Morphic
+{
+	NSMutableDictionary* data;
+}
 
 - (id) init
 {

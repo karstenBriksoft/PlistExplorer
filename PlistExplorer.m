@@ -25,7 +25,6 @@
 {
 	NSMutableSet* visitedObjects = [NSMutableSet new];	// used to detect recursions
 	[self logYourselfLevel:0 recordingVisitedObjects:visitedObjects];
-	[visitedObjects release];
 }
 
 - (NSString*)logString
@@ -87,17 +86,20 @@
 - (NSString*)logString
 {
 	// description of NSData is a bit too long, just write something usefull
-	return [NSString stringWithFormat: @"NSData with: %i Bytes",[self length]];
+	return [NSString stringWithFormat: @"NSData with: %tu Bytes",[self length]];
 }
 
 @end
 
 @implementation PlistExplorer
+{
+	NSData* data;
+}
 
 - (NSKeyedUnarchiver *) newUnarchiver 
 {
 	CrackedUnarchiver* unarchiver = [[CrackedUnarchiver alloc] initForReadingWithData:data];
-	[unarchiver setCracker:self];
+	unarchiver.cracker = self;
 	return unarchiver;
 }
 
@@ -169,9 +171,8 @@
 	return nil;
 }
 
-- (NSDictionary*)crackFile:(NSString*)aFile
+- (NSDictionary*)crackFile:(NSString*)file
 {
-	file = aFile;
 	data = [NSData dataWithContentsOfFile:file];
 	NSKeyedUnarchiver* unarchiver = [self newUnarchiver];
 

@@ -10,10 +10,8 @@
 
 @class PlistExplorer;
 
-@interface CrackedUnarchiver : NSKeyedUnarchiver {
-	PlistExplorer* cracker;
-}
+@interface CrackedUnarchiver : NSKeyedUnarchiver
 
-- (PlistExplorer *) cracker;
-- (void) setCracker: (PlistExplorer *) newValue;
+@property PlistExplorer *cracker;
+
 @end

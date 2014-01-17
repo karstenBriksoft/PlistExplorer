@@ -9,8 +9,6 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface Morphic : NSObject {
-	NSMutableDictionary* data;
-}
+@interface Morphic : NSObject
 
 @end

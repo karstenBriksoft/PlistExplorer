@@ -8,9 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3DA45CEF10FE6AB50070BC1A /* PlistExplorerMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA45CEE10FE6AB50070BC1A /* PlistExplorerMain.m */; };
-		3DA45D0810FE6BF50070BC1A /* CrackedUnarchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA45BB810FE5A2D0070BC1A /* CrackedUnarchiver.m */; };
+		3DA45D0810FE6BF50070BC1A /* ExploringUnarchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA45BB810FE5A2D0070BC1A /* ExploringUnarchiver.m */; };
 		3DA45D0910FE6BF50070BC1A /* Morphic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA45B3210FE57050070BC1A /* Morphic.m */; };
-		3DA45D0A10FE6BF50070BC1A /* PlistExplorer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA45AE310FE4DA70070BC1A /* PlistExplorer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,12 +18,10 @@
 		256AC3F00F4B6AF500CF3369 /* PlistExplorer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistExplorer_Prefix.pch; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		3DA45AE210FE4DA70070BC1A /* PlistExplorer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistExplorer.h; sourceTree = "<group>"; };
-		3DA45AE310FE4DA70070BC1A /* PlistExplorer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistExplorer.m; sourceTree = "<group>"; };
 		3DA45B3110FE57050070BC1A /* Morphic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Morphic.h; sourceTree = "<group>"; };
 		3DA45B3210FE57050070BC1A /* Morphic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Morphic.m; sourceTree = "<group>"; };
-		3DA45BB710FE5A2D0070BC1A /* CrackedUnarchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrackedUnarchiver.h; sourceTree = "<group>"; };
-		3DA45BB810FE5A2D0070BC1A /* CrackedUnarchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrackedUnarchiver.m; sourceTree = "<group>"; };
+		3DA45BB710FE5A2D0070BC1A /* ExploringUnarchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExploringUnarchiver.h; sourceTree = "<group>"; };
+		3DA45BB810FE5A2D0070BC1A /* ExploringUnarchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExploringUnarchiver.m; sourceTree = "<group>"; };
 		3DA45CE810FE6A850070BC1A /* PlistExplorer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PlistExplorer; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA45CEE10FE6AB50070BC1A /* PlistExplorerMain.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = PlistExplorerMain.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -43,13 +40,11 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3DA45BB710FE5A2D0070BC1A /* CrackedUnarchiver.h */,
-				3DA45BB810FE5A2D0070BC1A /* CrackedUnarchiver.m */,
+				3DA45BB710FE5A2D0070BC1A /* ExploringUnarchiver.h */,
+				3DA45BB810FE5A2D0070BC1A /* ExploringUnarchiver.m */,
 				3DA45B3110FE57050070BC1A /* Morphic.h */,
 				3DA45B3210FE57050070BC1A /* Morphic.m */,
 				3DA45CEE10FE6AB50070BC1A /* PlistExplorerMain.m */,
-				3DA45AE210FE4DA70070BC1A /* PlistExplorer.h */,
-				3DA45AE310FE4DA70070BC1A /* PlistExplorer.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -163,9 +158,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DA45D0810FE6BF50070BC1A /* CrackedUnarchiver.m in Sources */,
+				3DA45D0810FE6BF50070BC1A /* ExploringUnarchiver.m in Sources */,
 				3DA45D0910FE6BF50070BC1A /* Morphic.m in Sources */,
-				3DA45D0A10FE6BF50070BC1A /* PlistExplorer.m in Sources */,
 				3DA45CEF10FE6AB50070BC1A /* PlistExplorerMain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

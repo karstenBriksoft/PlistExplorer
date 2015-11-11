@@ -1,14 +1,16 @@
+// Copyright © 2015 JABT Labs Inc.
+// Copyright © 2010 Briksoftware.com.
 //
-//  Morphic.h
-//  PlistExplorer
-//
-//  Created by Karsten Kusche on 13.01.10.
-//  Copyright 2010 Briksoftware.com. All rights reserved.
-//
+// Based on PlistExplorer by Karsten Kusche: https://github.com/karstenBriksoft/PlistExplorer
 
 #import <Cocoa/Cocoa.h>
 
 
 @interface Morphic : NSObject
+
+@property (strong, nonatomic) NSMutableDictionary* objects;
+
+- (void)printJSON;
+- (void)collectKeysByClass:(NSMutableDictionary*)keysByClass;
 
 @end

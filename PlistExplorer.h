@@ -12,13 +12,6 @@
 @interface PlistExplorer : NSObject
 
 - (NSDictionary*)crackFile:(NSString*)aFile;
-- (NSArray*)keysOfUnarchiver:(NSKeyedUnarchiver*)unarchiver;
+- (NSDictionary*)blobOfUnarchiver:(NSKeyedUnarchiver*)unarchiver;
 
-@end
-
-
-@interface NSObject (PlistExplorer)
-- (void)logYourself;
-- (void) logYourselfLevel:(NSInteger)level recordingVisitedObjects:(NSMutableSet*)visitedObjects;
-- (NSString*)gapForLevel:(NSInteger) level;
 @end

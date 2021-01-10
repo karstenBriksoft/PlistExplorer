@@ -19,87 +19,23 @@
 
 @end
 
-@implementation NSObject (PlistExplorer)
-
-- (void)logYourself
-{
-	NSMutableSet* visitedObjects = [NSMutableSet new];	// used to detect recursions
-	[self logYourselfLevel:0 recordingVisitedObjects:visitedObjects];
-}
-
-- (NSString*)logString
-{
-	return [self description];
-}
-
-- (void)logYourselfLevel:(NSInteger)level recordingVisitedObjects:(NSMutableSet*)visitedObjects
-{
-	printf("%s\n",[[NSString stringWithFormat:@"%@%@",[self gapForLevel:level],[self logString]] UTF8String]);
-}
-
-- (NSString*)gapForLevel:(NSInteger)level
-{
-	NSMutableString* gap = [NSMutableString stringWithCapacity:level*2];
-	int i;
-	for (i = 0; i< level; i++)
-	{
-		[gap appendString:@"  "]; 
-	}
-	return gap;
-}
-
-@end
-
-@implementation NSArray (PlistExplorer)
-
-- (void)logYourselfLevel:(NSInteger)level recordingVisitedObjects:(NSMutableSet*)visitedObjects
-{
-	for (id obj in self)
-	{
-		[obj logYourselfLevel:level+1 recordingVisitedObjects:visitedObjects];
-	}
-}
-
-@end
-
-@implementation NSDictionary (PlistExplorer)
-
-- (void)logYourselfLevel:(NSInteger)level recordingVisitedObjects:(NSMutableSet*)visitedObjects
-{
-	// the information about the object's properties
-	NSArray *keys = [self allKeys];
-	keys = [keys sortedArrayUsingSelector:@selector(compare:)];
-	
-	for (NSString* key in keys)
-	{
-		id obj = [self objectForKey:key];
-		[key logYourselfLevel:level+1 recordingVisitedObjects:visitedObjects];
-		[obj logYourselfLevel:level+3 recordingVisitedObjects:visitedObjects];
-	}
-}
-
-@end
-
-
-@implementation NSData (PlistExplorer)
-
-- (NSString*)logString
-{
-	// description of NSData is a bit too long, just write something usefull
-	return [NSString stringWithFormat: @"NSData with: %tu Bytes",[self length]];
-}
-
-@end
 
 @implementation PlistExplorer
-{
-	NSData* data;
-}
 
-- (NSKeyedUnarchiver *) newUnarchiver 
+- (NSKeyedUnarchiver *) newUnarchiverWithData: (NSData*)data
 {
-	CrackedUnarchiver* unarchiver = [[CrackedUnarchiver alloc] initForReadingWithData:data];
-	unarchiver.cracker = self;
+	NSError* error = nil;
+	CrackedUnarchiver* unarchiver = [[CrackedUnarchiver alloc] initForReadingFromData:data error:&error];
+	if (error != nil)
+	{
+		NSLog(@"error reading data: %@",error);
+	}
+	else
+	{
+		unarchiver.cracker = self;
+		unarchiver.decodingFailurePolicy = NSDecodingFailurePolicyRaiseException;
+		unarchiver.requiresSecureCoding = NO;
+	}
 	return unarchiver;
 }
 
@@ -116,11 +52,11 @@
 	return name;
 }
 
-- (NSArray*)keysOfUnarchiver:(NSKeyedUnarchiver*)unarchiver
+- (NSDictionary*)blobOfUnarchiver:(NSKeyedUnarchiver*)unarchiver
 {
 	NSDictionary* blob = [unarchiver _blobForCurrentObject];
 	// blob has the keys of all objects + a @"$class" key
-	return [blob allKeys];
+	return blob;
 }
 
 
@@ -130,16 +66,16 @@
 	objc_registerClassPair(newClass);
 }
 
-- (id)crackUnarchiver:(NSKeyedUnarchiver*)unarchiver
+- (id)crackUnarchiver:(NSKeyedUnarchiver*)unarchiver withData:(NSData*)data
 {
 	// return the unarchived object
 
-	NSArray* keys = [self keysOfUnarchiver: unarchiver];
-	for (NSString* key in keys)
+	NSDictionary* blob = [self blobOfUnarchiver: unarchiver];
+	for (NSString* key in blob.allKeys)
 	{
 		// there should be only one key in keys. At least only the first object is returned.
-		BOOL error = YES;
-		while (error)
+		BOOL error;
+		do
 		{
 			// try until it is cracked
 			@try 
@@ -156,7 +92,7 @@
 					// actually this could probably be swizzled into appkit..
 					NSString* className = [self getClassNameFromException: exception];
 					[self addMorphicNamed: className];
-					unarchiver = [self newUnarchiver];
+					unarchiver = [self newUnarchiverWithData:data];
 				}
 				else 
 				{
@@ -165,7 +101,7 @@
 				}
 				error = YES;
 			}
-		}
+		} while (error == YES);
 	}
 	//	NSLog(@"dict: %@",dict);
 	return nil;
@@ -173,9 +109,9 @@
 
 - (NSDictionary*)crackFile:(NSString*)file
 {
-	data = [NSData dataWithContentsOfFile:file];
-	NSKeyedUnarchiver* unarchiver = [self newUnarchiver];
+	NSData* data = [NSData dataWithContentsOfFile:file];
+	NSKeyedUnarchiver* unarchiver = [self newUnarchiverWithData:data];
 
-	return [self crackUnarchiver: unarchiver];
+	return [self crackUnarchiver: unarchiver withData: data];
 }
 @end

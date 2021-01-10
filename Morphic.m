@@ -9,6 +9,7 @@
 #import "Morphic.h"
 #import "PlistExplorer.h"
 #import "CrackedUnarchiver.h"
+#import "PlistLogger.h"
 
 @implementation Morphic
 {
@@ -27,34 +28,39 @@
 - (id)initWithCoder:(NSKeyedUnarchiver*)unarchiver
 {
 	self = [self init];
-	NSArray* keys = [[(CrackedUnarchiver*)unarchiver cracker] keysOfUnarchiver:unarchiver];
+	NSDictionary* blob = [[(CrackedUnarchiver*)unarchiver cracker] blobOfUnarchiver:unarchiver];
 
-	for (NSString* key in keys) 
+	for (NSString* key in blob.allKeys)
 	{
-		id obj = [unarchiver decodeObjectForKey:key];
-		if (obj == nil)
+		id obj = [blob objectForKey:key];
+		// if the value is a property-list compatible object, it's something like a number. If it's not compatible, it needs to be decoded seperately
+		CFTypeID typeID = CFGetTypeID((__bridge CFTypeRef)(obj));
+		// test if the object is a CFKeyedArchiverUID
+		if (typeID == 0x29)
 		{
-			// nil wouldn't be shown, so use a string @"nil"
-			obj = @"nil";
+			obj = [unarchiver decodeObjectForKey:key];
+			if (obj == nil)
+			{
+				// nil wouldn't be shown, so use a string @"nil"
+				obj = @"nil";
+			}
 		}
 		[data setObject: obj forKey:key];
 	}
 	return self;
 }
 
-- (void)logYourselfLevel:(NSInteger)level recordingVisitedObjects:(NSMutableSet*)visitedObjects
+- (void)logYourselfLevel:(NSInteger)level using:(PlistLogger*)logger
 {
-	if ([visitedObjects containsObject:self]) {
+	if ([logger tryLogObject:self] == NO) {
 		// already printed once before
-		printf("%s\n",[[NSString stringWithFormat:@"%@%@",[self gapForLevel:level],@"(recursion)"] UTF8String]);
+		[logger logStringOfObject:@"(recursion)" level:level];
 	}
 	else
 	{
-		[visitedObjects addObject:self];
-
 		// the information about the object
-		printf("%s\n",[[NSString stringWithFormat:@"%@%@",[self gapForLevel:level],[self className]] UTF8String]);
-		
+		[logger logStringOfObject:self.className level:level];
+
 		// the information about the object's properties
 		NSArray *keys = [data allKeys];
 		keys = [keys sortedArrayUsingSelector:@selector(compare:)];
@@ -62,8 +68,8 @@
 		for (NSString* key in keys)
 		{
 			id object = [data objectForKey:key];
-			[key logYourselfLevel:level+1 recordingVisitedObjects:visitedObjects];
-			[object logYourselfLevel:level+3 recordingVisitedObjects:visitedObjects];
+			[logger logKey:key level:level];
+			[logger logValue:object level:level];
 		}
 	}
 }

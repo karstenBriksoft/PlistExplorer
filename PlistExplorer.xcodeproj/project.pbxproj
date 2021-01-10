@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D7376F525AB0E790078B813 /* PlistLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7376F425AB0E790078B813 /* PlistLogger.m */; };
+		3D7376F825AB0F5D0078B813 /* PlistStringLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7376F725AB0F5D0078B813 /* PlistStringLogger.m */; };
 		3DA45CEF10FE6AB50070BC1A /* PlistExplorerMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA45CEE10FE6AB50070BC1A /* PlistExplorerMain.m */; };
 		3DA45D0810FE6BF50070BC1A /* CrackedUnarchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA45BB810FE5A2D0070BC1A /* CrackedUnarchiver.m */; };
 		3DA45D0910FE6BF50070BC1A /* Morphic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA45B3210FE57050070BC1A /* Morphic.m */; };
@@ -19,6 +21,10 @@
 		256AC3F00F4B6AF500CF3369 /* PlistExplorer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistExplorer_Prefix.pch; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		3D7376F325AB0E790078B813 /* PlistLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlistLogger.h; sourceTree = "<group>"; };
+		3D7376F425AB0E790078B813 /* PlistLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlistLogger.m; sourceTree = "<group>"; };
+		3D7376F625AB0F5D0078B813 /* PlistStringLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlistStringLogger.h; sourceTree = "<group>"; };
+		3D7376F725AB0F5D0078B813 /* PlistStringLogger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlistStringLogger.m; sourceTree = "<group>"; };
 		3DA45AE210FE4DA70070BC1A /* PlistExplorer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistExplorer.h; sourceTree = "<group>"; };
 		3DA45AE310FE4DA70070BC1A /* PlistExplorer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistExplorer.m; sourceTree = "<group>"; };
 		3DA45B3110FE57050070BC1A /* Morphic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Morphic.h; sourceTree = "<group>"; };
@@ -50,6 +56,10 @@
 				3DA45CEE10FE6AB50070BC1A /* PlistExplorerMain.m */,
 				3DA45AE210FE4DA70070BC1A /* PlistExplorer.h */,
 				3DA45AE310FE4DA70070BC1A /* PlistExplorer.m */,
+				3D7376F325AB0E790078B813 /* PlistLogger.h */,
+				3D7376F425AB0E790078B813 /* PlistLogger.m */,
+				3D7376F625AB0F5D0078B813 /* PlistStringLogger.h */,
+				3D7376F725AB0F5D0078B813 /* PlistStringLogger.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -141,13 +151,15 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 1130;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "PlistExplorer" */;
 			compatibilityVersion = "Xcode 3.1";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* PlistExplorer */;
 			projectDirPath = "";
@@ -164,9 +176,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DA45D0810FE6BF50070BC1A /* CrackedUnarchiver.m in Sources */,
+				3D7376F825AB0F5D0078B813 /* PlistStringLogger.m in Sources */,
 				3DA45D0910FE6BF50070BC1A /* Morphic.m in Sources */,
 				3DA45D0A10FE6BF50070BC1A /* PlistExplorer.m in Sources */,
 				3DA45CEF10FE6AB50070BC1A /* PlistExplorerMain.m in Sources */,
+				3D7376F525AB0E790078B813 /* PlistLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,11 +191,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
@@ -202,11 +215,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INSTALL_PATH = /usr/local/bin;
@@ -225,11 +237,36 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -238,10 +275,34 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				SDKROOT = macosx;
 			};
 			name = Release;

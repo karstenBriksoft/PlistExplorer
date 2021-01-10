@@ -10,24 +10,28 @@
 #import <Cocoa/Cocoa.h>
 #import <sysexits.h>
 #import "PlistExplorer.h"
+#import "PlistLogger.h"
+#import "PlistStringLogger.h"
 
 int main(int argc, char* argv[])
 {
 	@autoreleasepool
 	{
-		NSString* path = nil;
-		if (argc > 1)
-		{
-			path = [[NSString alloc] initWithUTF8String:argv[1]];
-		}
-		else
+		Class loggerClass = [PlistStringLogger class];
+		NSArray* args = [[NSProcessInfo processInfo] arguments];
+		NSArray* paths = [args subarrayWithRange:NSMakeRange(1, args.count - 1)];
+		if (paths.count == 0)
 		{
 			printf("usage: %s <filename>\n",argv[0]);
 			return EX_USAGE;
 		}
-		PlistExplorer* explorer = [[PlistExplorer alloc] init];
-		id res = [explorer crackFile:path];
-		[res logYourself];
+		for (NSString* path in paths)
+		{
+			PlistExplorer* explorer = [[PlistExplorer alloc] init];
+			PlistLogger* logger = [[loggerClass alloc] init];
+			id res = [explorer crackFile:path];
+			[res logYourselfUsing:logger];
+		}
 	}
 	return EX_OK;
 }
